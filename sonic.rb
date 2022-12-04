@@ -1,20 +1,11 @@
-use_bpm 60
+# Welcome to Sonic Pi
+use_bpm 90
 
-#https://mehackit.org/en/courses/music_programming_basics/03-write-a-bass-riff/03-exercise-write-a-looping-bassline/
-live_loop :drum do
-  #drum_2
-  #drum_1
-  #cymbals
-  sleep 0
-end
+$g_release=2
 
+#definitions
+use_synth :dpulse
 
-live_loop :i_chord do
-  play_one
-  play_six
-  play_five
-  
-end
 
 def drum_1()
   4.times do
@@ -28,16 +19,19 @@ def drum_1()
   end
 end
 
-
-def drum_2()
+def cymbals()
   4.times do
-    sample :drum_bass_hard, amp: 1
-    sleep 1
+    sample :drum_cymbal_closed, amp: 0.5
+    sleep 0.5
   end
-end
-
-live_loop :x do
-  drum_and_cymbals
+  4.times do
+    sample :drum_cymbal_closed, amp: 0.5
+    sleep 0.25
+  end
+  sample :drum_cymbal_pedal, amp: 0.33
+  sleep 0.5
+  sample :drum_cymbal_pedal, amp: 0.33
+  sleep 0.5
 end
 
 def drum_and_cymbals()
@@ -55,45 +49,99 @@ def drum_and_cymbals()
   
 end
 
-
-def cymbals()
-  4.times do
-    sample :drum_cymbal_closed, amp: 0.5
-    sleep 0.5
-  end
-  4.times do
-    sample :drum_cymbal_closed, amp: 0.5
-    sleep 0.25
-  end
-  sample :drum_cymbal_pedal, amp: 0.33
-  sleep 0.5
-  sample :drum_cymbal_pedal, amp: 0.33
-  sleep 0.5
-end
-
-
 def play_one()
-  2.times do
-    play chord(:F5, :major), release:4
-    sleep 4
-  end
+  play chord(:F5, :major), release: $g_release
+  sleep 4
   
 end
-
 
 def play_six()
   
-  2.times do
-    play chord(:d6, :minor), release: 4, amp: 0.75
+  play chord(:d6, :minor), release: $g_release, amp: 0.75
+  sleep 4
+  
+end
+
+def play_six_low(arp)
+  
+  if arp
+    play_pattern chord(:d6, :minor), release: $g_release, amp: 0.75
+    sleep 4
+  else
+    
+    play chord(:d5, :minor), release: $g_release, amp: 0.75
     sleep 4
   end
+  
+  
 end
+
+
+def play_four()
+  
+  play chord(:Bb5, :major), release: $g_release, amp: 0.75
+  sleep 4
+  
+end
+
 
 def play_five()
   
-  2.times do
-    play chord(:Bb5, :major), release: 4, amp: 0.75
-    sleep 4
+  play chord(:C5, :major), release: $g_release, amp: 0.75
+  sleep 4
+  
+end
+
+def mel
+  
+  # Welcome to Sonic Pi
+  
+  
+  
+  play :g5, amp:1
+  sleep 1
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :f5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  play :f5
+  sleep 1
+  play :g5
+  sleep 1
+  play :a5
+  sleep 1
+  
+  sleep 1
+  
+end
+
+#music
+
+in_thread do
+  
+  3.times do
+    
+    play_one
+    play_five
+    play_six_low(false)
+    play_four
   end
+  
+  
+end
+
+2.times
+4.times do
+  sleep 4
+end
+mel
+drum_1
+4.times do
+  drum_and_cymbals
 end
 
