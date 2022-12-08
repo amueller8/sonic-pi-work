@@ -263,13 +263,13 @@ define :verse_1 do
   sleep 0.5
   play :g5
   sleep 0.5
-  
-  play :g5
-  sleep 1
   play :g5
   sleep 1
   
   
+  
+  play :c5
+  sleep 1
   play :c5
   sleep 0.5
   play :c5
@@ -282,8 +282,6 @@ define :verse_1 do
   
   
   #all the nodes to my right
-  
-  #all the nodes...
   play :g5
   sleep 0.5
   play :g5
@@ -294,13 +292,13 @@ define :verse_1 do
   sleep 0.5
   play :g5
   sleep 0.5
-  
-  play :g5
-  sleep 1
   play :g5
   sleep 1
   
   
+  
+  play :c5
+  sleep 1
   play :c5
   sleep 0.5
   play :c5
@@ -308,13 +306,33 @@ define :verse_1 do
   play :c5
   sleep 1
   play :c5
+  sleep 1
+  
+  #only have one child on either side
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
   sleep 1
   
 end
 
+
 define :verse_2 do
-  # Welcome to Sonic Pi
-  use_bpm 95
+
   
   #i am the root
   play :g5
@@ -437,7 +455,6 @@ intro_sequence
 in_thread do
   use_synth :zawa
   
-  
   in_thread do
     2.times do
       drum_1
@@ -458,29 +475,48 @@ in_thread do
     end
   end
   
-  4.times do
+  5.times do
     new_one
     new_five
     new_six
     new_four
   end
-  
+  puts "hath ended the beats/chords"
 end
 
 sleep 16
 use_synth :dpulse
 chorus
-#sleep 4 #sleep 4 here started us on G
-#1 5 6 4
-#sample :ambi_dark_woosh, amp:1, release:2
+puts "post chorus"
 
+puts "verse1"
 verse_1
-#verse
-#backing chords/perc? for verse
+
+chorus
+
+puts "new verse"
 in_thread do
+  in_thread do
+    verse_2
+  end
+  4.times do
+    drum_1
+  end
+  2.times do
+    cymbals
+  end
   
 end
-
+#chords
+puts "chords for new verse"
+4.times do
+  use_synth :zawa
+  new_one
+  new_five
+  new_six
+  new_four
+  
+end
 
 #verse 1
 #chorus
