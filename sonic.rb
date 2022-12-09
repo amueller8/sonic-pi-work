@@ -87,19 +87,6 @@ def mel
   
 end
 
-def e_mel
-  play :e6
-  sleep 1
-  play :e6
-  sleep 0.5
-  play :d6
-  sleep 0.5
-  play :e6
-  sleep 1
-  play :a6
-  sleep 1
-  
-end
 
 
 ###3 new chords
@@ -154,10 +141,6 @@ def intro_sequence()
   sleep 2
   play :e6
   sleep 2
-  
-end
-
-def verse
   
 end
 
@@ -260,16 +243,12 @@ define :verse_1 do
   play :g5
   sleep 1
   play :g5
-  sleep 0.5
-  play :g5
-  sleep 0.5
+  sleep 1
   play :g5
   sleep 1
   
   
   
-  play :c5
-  sleep 1
   play :c5
   sleep 0.5
   play :c5
@@ -280,8 +259,10 @@ define :verse_1 do
   sleep 1
   
   
+  sleep 1
   
-  #all the nodes to my right
+  
+  #all the nodes to my left...
   play :g5
   sleep 0.5
   play :g5
@@ -289,23 +270,22 @@ define :verse_1 do
   play :g5
   sleep 1
   play :g5
-  sleep 0.5
-  play :g5
-  sleep 0.5
+  sleep 1
   play :g5
   sleep 1
   
   
   
   play :c5
-  sleep 1
-  play :c5
   sleep 0.5
   play :c5
   sleep 0.5
   play :c5
   sleep 1
   play :c5
+  sleep 1
+  
+  
   sleep 1
   
   #only have one child on either side
@@ -323,7 +303,9 @@ define :verse_1 do
   play :c5
   sleep 1
   play :c5
-  sleep 1
+  sleep 0.5
+  play :c5
+  sleep 0.5
   play :c5
   sleep 1
   sleep 1
@@ -332,7 +314,7 @@ end
 
 
 define :verse_2 do
-
+  
   
   #i am the root
   play :g5
@@ -432,7 +414,204 @@ define :verse_2 do
   
 end
 
+define :verse_3 do
+  
+  #inorder traversal
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  
+  #start left tree
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  
+  #left root right un-
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  #til we cease
+  
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  
+  #in increasing order
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  #sorted order
+  
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  #its yielding
+  
+  play :c5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  
+end
 
+
+
+define :verse_4 do
+  
+  
+  #what if we  de-
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  #lete the tree
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  #postorder traversal
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  
+  #start left-ly
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  #follow with the
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  play :g5
+  sleep 1
+  
+  #right sub tree
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  #get to the root yous
+  play :g5
+  sleep 1
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :g5
+  sleep 1
+  
+  play :g5
+  sleep 1
+  
+  
+  #could de lete
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  play :c5
+  sleep 1
+  
+  sleep 1
+  
+  
+end
 
 
 #MUSIC
@@ -492,8 +671,6 @@ puts "post chorus"
 puts "verse1"
 verse_1
 
-chorus
-
 puts "new verse"
 in_thread do
   in_thread do
@@ -509,18 +686,88 @@ in_thread do
 end
 #chords
 puts "chords for new verse"
+#we get 2 bonus chords after it ends
 4.times do
   use_synth :zawa
   new_one
+  
   new_five
+  
   new_six
+  
   new_four
   
 end
 
-#verse 1
-#chorus
-#verse 2
-#chours
+
+
+in_thread do
+  puts "v2 and chorus stuff"
+  3.times do
+    use_synth :zawa
+    new_one
+    new_five
+    new_six
+    new_four
+    
+  end
+  
+end
+puts "chorus here we come againnn"
+use_synth :dpulse
+chorus
+
+in_thread do
+  4.times do
+    drum_1
+  end
+  2.times do
+    drum_and_cymbals
+  end
+end
+verse_3
+
+in_thread do
+  4.times do
+    use_synth :zawa
+    new_one
+    new_five
+    new_six
+    new_four
+    
+  end
+end
+verse_4
+
+in_thread do
+  in_thread do
+    2.times do
+      use_synth :zawa
+      new_one
+      new_five
+      new_six
+      new_four
+      
+    end
+    
+  end
+  2.times do
+    drum_1
+  end
+  
+end
+puts "final chorus"
+use_synth :dpulse
+chorus
+
+puts "outro?"
+use_synth :zawa
+new_one
+new_five
+new_one
+
+use_bpm 80
+use_synth :dpulse
+play_pattern chord(:c5, :major)
 
 
