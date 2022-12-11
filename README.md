@@ -31,7 +31,12 @@ I use many "threads" to have "zawa" synth chords, "dpulse" synth melody, and per
 
 ## I want to listen without sung lyrics...
 
+WEll, lucky for you I have uploaded a 'wav' file without the lyrics if you are ok not watching along with the video!
+
+
+If you want to tinker with this on your own though...
 Don't worry, you can run this code on Sonic Pi on your own!
+
 
 Download the sonic.rb file from here. Save it locally on your computer.
 Then, open Sonic Pi and run the following: 
